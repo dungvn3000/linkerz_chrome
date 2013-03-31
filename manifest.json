@@ -1,18 +1,26 @@
 {
-  "manifest_version": 2,
-  "name": "vketnoi.com",
-  "version": "0.0.1",
-  "description": "Follow the news.",
-  
-  "icons": {
-    "128": "favicon.ico"
-  },
+    "manifest_version": 2,
+    "name": "vketnoi.com",
+    "version": "0.0.1",
+    "description": "Follow the news.",
 
-  "minimum_chrome_version": "16",
-   
-  "browser_action": {
-    "default_icon": "favicon.ico",
-    "default_title": "Vketnoi.com",
-    "default_popup": "popup.html"
-  }
+    "icons": {
+        "128": "favicon.ico"
+    },
+
+    "minimum_chrome_version": "16",
+
+    "browser_action": {
+        "default_icon": "favicon.ico",
+        "default_title": "Vketnoi.com",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": [
+        "tabs",
+        "*://*/*",
+        "cookies",
+        "*://*.vketnoi.com/*",
+        "*://localhost.org/*"
+    ]
 }
