@@ -28,6 +28,7 @@ $(function ($) {
             this.linkItems.fetch({success: function () {
                 $('#login-message').hide();
                 $('#read-more').show();
+                chrome.browserAction.setBadgeText({text: ""});
             }});
         },
         addLinkItem: function (model) {
