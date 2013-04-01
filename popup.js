@@ -12,8 +12,8 @@ $(function ($) {
     });
 
     app.LinkItemView = Backbone.View.extend({
-        tagName: 'li',
-        className: 'dung ne',
+        tagName: 'div',
+        className: 'row-fluid link-item',
         template: _.template($('#link-item-template').html()),
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));

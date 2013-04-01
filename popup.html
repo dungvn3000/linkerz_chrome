@@ -1,20 +1,27 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="popup.css">
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript" src="underscore-min.js"></script>
     <script type="text/javascript" src="backbone-min.js"></script>
 </head>
 <body>
-    <div class="span4">
+    <div class="span6">
         <div class="row well-small">
             <div class="well" id="login-message">
                 <p class="lead">Please login <a href="#" id="testlink">here</a></p>
             </div>
-            <ul id="link-item-list"></ul>
+            <div id="link-item-list"></div>
             <script type="text/template" id="link-item-template">
-                <p><%= title %></p>
+                <div class="span4">
+                    <img src="http://vketnoi.com:8088<%= featureImage %>" alt="" style="width: 150px; height: 120px !important">
+                </div>
+                <div class="span8">
+                    <div><h5><a href="<%= url %>" target="_blank"><%= title %></a></h5></div>
+                    <div><%= description %></div>
+                </div>
             </script>
         </div>
     </div>
