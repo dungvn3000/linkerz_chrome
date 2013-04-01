@@ -3,13 +3,21 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
-    <script type="text/javascript" src="popup.js"></script>
+    <script type="text/javascript" src="underscore-min.js"></script>
+    <script type="text/javascript" src="backbone-min.js"></script>
 </head>
 <body>
-	<div class="span2 well-small">
-		<div class="well">
-			<p class="lead">dung ne</p>
-		</div>
-	</div>
+    <div class="span4">
+        <div class="row well-small">
+            <div class="well" id="login-message">
+                <p class="lead">Please login <a href="#" id="testlink">here</a></p>
+            </div>
+            <ul id="link-item-list"></ul>
+            <script type="text/template" id="link-item-template">
+                <p><%= title %></p>
+            </script>
+        </div>
+    </div>
+    <script type="text/javascript" src="popup.js"></script>
 </body>
 </html>
