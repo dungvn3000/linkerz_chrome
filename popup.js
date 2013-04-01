@@ -7,7 +7,7 @@ $(function ($) {
         model: LinkItem,
         url: 'http://vketnoi.com:8088/group/default',
         initialize: function (models, options) {
-            this.bind("add", options.view.addLinkItemLi);
+            this.bind("add", options.view.addLinkItem);
         }
     });
 
@@ -27,9 +27,10 @@ $(function ($) {
             this.linkItems = new LinkItems(null, {view: this});
             this.linkItems.fetch({success: function () {
                 $('#login-message').hide();
+                $('#read-more').show();
             }});
         },
-        addLinkItemLi: function (model) {
+        addLinkItem: function (model) {
             var view = new app.LinkItemView({model: model});
             $('#link-item-list').append(view.render().el);
         }
