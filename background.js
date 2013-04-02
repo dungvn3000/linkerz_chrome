@@ -10,6 +10,8 @@ function update_news() {
         success: function (data) {
             if(data > 0) {
                 chrome.browserAction.setBadgeText({text: String(data)});
+            } else if(data == 0) {
+                chrome.browserAction.setBadgeText({text: ""});
             }
         }
     });
