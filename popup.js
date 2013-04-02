@@ -13,7 +13,13 @@ $(function ($) {
 
     app.LinkItemView = Backbone.View.extend({
         tagName: 'div',
-        className: 'row-fluid link-item',
+        className: function () {
+            var className = 'row-fluid link-item';
+            if (!this.model.get("read")) {
+                className += ' unread';
+            }
+            return className;
+        },
         template: _.template($('#link-item-template').html()),
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
@@ -25,11 +31,13 @@ $(function ($) {
         el: $("body"),
         initialize: function () {
             this.linkItems = new LinkItems(null, {view: this});
-            this.linkItems.fetch({success: function () {
-                $('#login-message').hide();
-                $('#read-more').show();
-                chrome.browserAction.setBadgeText({text: ""});
-            }});
+            this.linkItems.fetch({
+                data: {"l": 5},
+                success: function () {
+                    $('#login-message').hide();
+                    $('#read-more').show();
+                    chrome.browserAction.setBadgeText({text: ""});
+                }});
         },
         addLinkItem: function (model) {
             var view = new app.LinkItemView({model: model});
