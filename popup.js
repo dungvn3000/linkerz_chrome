@@ -44,6 +44,5 @@ $(function ($) {
 
         $('#login-message').hide();
         $('.topic-container').show();
-        $('#read-more').show();
     });
 });
