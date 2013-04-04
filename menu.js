@@ -4,24 +4,39 @@ var parent = chrome.contextMenus.create({
     'title': 'Quan tam'
 });
 
-$.getJSON(config.server_url + 'user/topic', function (toipcs) {
+$.getJSON(config.server_url + '/user/topic', function (toipcs) {
     $.each(toipcs, function (i, topic) {
-        var child = chrome.contextMenus.create({
+        chrome.contextMenus.create({
             'title': topic.name,
             'parentId': parent,
-            'onclick': function(info, tab) {
-                $.ajax({
-                    'url': config.server_url + "post/link",
-                    'method': 'post',
-                    'data': {
-                        'url': info.pageUrl,
-                        'topicId': topic.id
-                    },
-                    'success': function (data) {
-                        alert("Them thanh Cong!")
-                    }
-                });
+            'onclick': function (info, tab) {
+                onMenuItemClick(info, tab, topic)
             }
         });
     });
+
+    //create and post into a new topic
+    chrome.contextMenus.create({
+        'title': 'New Group',
+        'parentId': parent,
+        'onclick': function (info, tab) {
+            var answer = prompt("Topic name?");
+        }
+    });
 });
+
+
+function onMenuItemClick(info, tab, topic) {
+    $.ajax({
+        'url': config.server_url + "/post/link",
+        'method': 'post',
+        'data': {
+            'url': info.pageUrl,
+            'topicId': topic.id
+        },
+        'success': function (data) {
+            alert("Them thanh Cong!")
+        }
+    });
+}
+
