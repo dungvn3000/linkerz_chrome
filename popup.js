@@ -1,5 +1,5 @@
 $(function ($) {
-    $.getJSON(config.server_url + 'user/topic', function (toipcs) {
+    $.getJSON(config.server_url + '/user/topic', function (toipcs) {
         $.each(toipcs, function (i, topic) {
             var data = {
                 topic: topic,
@@ -22,7 +22,7 @@ $(function ($) {
             e.preventDefault();
             $(this).tab('show');
             var topicName = $(this).text();
-            $.getJSON(config.server_url + 'topic/' + topicName + "?l=5", function (links) {
+            $.getJSON(config.server_url + '/topic/' + topicName + "?l=5", function (links) {
                 $('.link-item-list').empty();
                 $.each(links, function (i, link) {
                     var data = {
@@ -32,6 +32,13 @@ $(function ($) {
                                 return 'unread';
                             } else {
                                 return '';
+                            }
+                        },
+                        'featureImage': function() {
+                            if(link.featureImage != null) {
+                                return config.server_url + link.featureImage;
+                            } else {
+                                return "http://placehold.it/200x150"
                             }
                         }
                     };
