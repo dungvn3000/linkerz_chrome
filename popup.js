@@ -18,19 +18,32 @@ $(function ($) {
             $('.topic-content').append(topicItem);
         });
 
-        $('#login-message').hide();
-        $('.topic-container').show();
         $('.topic-nav a').click(function (e) {
             e.preventDefault();
             $(this).tab('show');
             var topicName = $(this).text();
-            $.getJSON(config.server_url + 'topic/' + topicName, function (links) {
+            $.getJSON(config.server_url + 'topic/' + topicName + "?l=5", function (links) {
+                $('.link-item-list').empty();
                 $.each(links, function (i, link) {
-                    var linkItem = ich.linkItem(link);
+                    var data = {
+                        'link': link,
+                        'unread': function() {
+                            if(!link.read) {
+                                return 'unread';
+                            } else {
+                                return '';
+                            }
+                        }
+                    };
+                    var linkItem = ich.linkItem(data);
                     $('.link-item-list').append(linkItem);
                 })
             });
         });
         $('.topic-nav a:first').click();
+
+        $('#login-message').hide();
+        $('.topic-container').show();
+        $('#read-more').show();
     });
 });

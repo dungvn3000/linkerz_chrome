@@ -8,7 +8,7 @@
     <script type="text/javascript" src="config.js"></script>
 </head>
 <body>
-    <div class="span6">
+    <div class="span8">
         <div class="row well-small">
             <div class="well" id="login-message">
                 <p class="lead">Please login <a href="http://vketnoi.com:8088" target="_blank">here</a></p>
@@ -34,12 +34,14 @@
                 </script>
 
                 <script type="text/html" id="linkItem">
-                    <div class="span4">
-                        <img src="http://vketnoi.com:8088{{featureImage}}" alt="" style="width: 150px; height: 120px !important">
-                    </div>
-                    <div class="span8">
-                        <div><h5><a href="{{url}}" target="_blank">{{title}}</a></h5></div>
-                        <div>{{description}}</div>
+                    <div class="link-item row {{unread}}">
+                        <div class="span2">
+                            <img src="http://vketnoi.com:8088{{link.featureImage}}" alt="" style="width: 150px; height: 120px !important">
+                        </div>
+                        <div class="span5">
+                            <div><h5><a href="{{link.url}}" target="_blank">{{link.title}}</a></h5></div>
+                            <div>{{link.description}}</div>
+                        </div>
                     </div>
                 </script>
             </div>
