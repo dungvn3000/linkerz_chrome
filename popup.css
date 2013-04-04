@@ -3,6 +3,10 @@ body {
     color: #333;
 }
 
+.topic-container {
+    display: none;
+}
+
 .link-item {
     margin-bottom: 10px;
 }
