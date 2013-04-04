@@ -5,6 +5,7 @@
     "description": "Follow the news.",
 
     "icons": {
+        "16": "favicon.ico",
         "128": "favicon.ico"
     },
 
@@ -19,6 +20,7 @@
     },
 
     "permissions": [
+        "contextMenus",
         "tabs",
         "*://*/*",
         "cookies",
@@ -26,5 +28,7 @@
         "*://localhost.org/*"
     ],
 
-    "background": { "scripts": ["jquery-1.9.1.min.js","background.js"] }
+    "background": {
+        "scripts": ["jquery-1.9.1.min.js", "config.js" ,"background.js", "menu.js"]
+    }
 }

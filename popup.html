@@ -20,29 +20,30 @@
                 </ul>
                 <div class="topic-content tab-content">
                 </div>
+
                 <script id="navTopicItem" type="text/html">
                     <li class="{{active}}">
                         <a href="#{{topic.id}}">{{topic.name}}</a>
                     </li>
                 </script>
+
                 <script id="topicItem" type="text/html">
                     <div class="tab-pane {{active}}" id="{{topic.id}}">
-                        {{topic.name}}
+                        <div class="link-item-list"></div>
+                    </div>
+                </script>
+
+                <script type="text/html" id="linkItem">
+                    <div class="span4">
+                        <img src="http://vketnoi.com:8088{{featureImage}}" alt="" style="width: 150px; height: 120px !important">
+                    </div>
+                    <div class="span8">
+                        <div><h5><a href="{{url}}" target="_blank">{{title}}</a></h5></div>
+                        <div>{{description}}</div>
                     </div>
                 </script>
             </div>
 
-            <!--new container-->
-            <div id="link-item-list"></div>
-            <script type="text/template" id="link-item-template">
-                <div class="span4">
-                    <img src="http://vketnoi.com:8088<%= featureImage %>" alt="" style="width: 150px; height: 120px !important">
-                </div>
-                <div class="span8">
-                    <div><h5><a href="<%= url %>" target="_blank"><%= title %></a></h5></div>
-                    <div><%= description %></div>
-                </div>
-            </script>
             <div id="read-more" style="display: none"><h4><a href="http://vketnoi.com:8088/" target="_blank">See more...</a></h4></div>
         </div>
     </div>
