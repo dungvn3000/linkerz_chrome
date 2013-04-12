@@ -9,6 +9,13 @@ $(function ($) {
                     } else {
                         return '';
                     }
+                },
+                display: function() {
+                    if(topic.numberOfNew > 0) {
+                        return topic.name + " (" + topic.numberOfNew + ")";
+                    } else {
+                        return topic.name;
+                    }
                 }
             };
             var navTopicItem = ich.navTopicItem(data);
@@ -21,7 +28,7 @@ $(function ($) {
         $('.topic-nav a').click(function (e) {
             e.preventDefault();
             $(this).tab('show');
-            var topicName = $(this).text();
+            var topicName = $(this).attr('data');
             $.getJSON(config.server_url + '/topic/' + topicName + "?l=5", function (links) {
                 $('.link-item-list').empty();
                 $.each(links, function (i, link) {
