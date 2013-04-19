@@ -45,7 +45,7 @@ $(function ($) {
                             if(link.featureImage != null) {
                                 return config.server_url + link.featureImage;
                             } else {
-                                return "http://placehold.it/200x150"
+                                return config.server_url + "/assets/img/blank.gif";
                             }
                         }
                     };
